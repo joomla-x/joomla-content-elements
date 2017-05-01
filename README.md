@@ -5,6 +5,10 @@ based on the proposed [Joomla! specification for Content Elements][content-eleme
 
 [content-elements]: https://github.com/nibra/joomla-standards/blob/master/proposed/content-elements.md
 
+## Documentation
+
+The documentation in the `docs` directory is generated from the sources.
+
 ## License
 
 [MIT License](LICENSE)

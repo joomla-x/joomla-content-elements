@@ -9,14 +9,16 @@ class ButtonTest extends \PHPUnit\Framework\TestCase
     {
         $label  = 'Foo';
         $url    = 'action.php';
+        $hint   = 'Send Mail';
         $icon   = 'mail';
         $params = [
             'class' => 'special',
         ];
-        $button = new Button($label, $url, $icon, $params);
+        $button = new Button($label, $url, $hint, $icon, $params);
 
         $this->assertEquals($label, $button->get('label'), 'Property "label" does not have the expected value');
         $this->assertEquals($url, $button->get('url'), 'Property "url" does not have the expected value');
+        $this->assertEquals($hint, $button->get('hint'), 'Property "hint" does not have the expected value');
         $this->assertEquals($icon, $button->get('icon'), 'Property "icon" does not have the expected value');
         $this->assertEquals('special', $button->getParameter('class'),
             'Parameter "class" does not have the expected value');
