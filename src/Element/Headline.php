@@ -5,6 +5,17 @@ namespace Joomla\Content\Element;
 /**
  * Class Headline
  *
+ * The headline (also heading, head or title, or hed in journalism jargon) of a story is typically a complete sentence
+ * (e.g., "Pilot Flies Below Bridges to Save Divers"), often with auxiliary verbs and articles removed (e.g., "Remains
+ * at Colorado camp linked to missing Chicago man"). However, headlines sometimes omit the subject (e.g., "Jumps From
+ * Boat, Catches in Wheel") or verb (e.g., "Cat woman lucky").
+ *
+ * _From [Wikipedia](https://en.wikipedia.org/wiki/News_style#Headline)_
+ *
+ * _See also:_
+ *
+ * [Glossary of Journalism](https://en.wiktionary.org/wiki/Appendix:Glossary_of_journalism#Article_components) on Wiktionary
+ *
  * @package Joomla\Content\Element
  */
 class Headline extends AbstractElement
