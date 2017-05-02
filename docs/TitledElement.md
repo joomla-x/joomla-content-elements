@@ -6,7 +6,7 @@ The purpose of this element is to add a title to an element for use in collectio
 ## Usage
 
 ```php
-$titledElement = new TitledElement( ContentElementInterface $element, string $title [, array $params  ] );
+$titledElement = new TitledElement( ContentElementInterface $element, string $title [, array $params ] );
 ```
 
 or

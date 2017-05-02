@@ -101,7 +101,7 @@ foreach (glob($sourceDirectory .'*.php') as $file)
         $headline = "\n#### " . ucfirst($name) . "\n\nGet " . lcfirst($description) . ".\n";
         $propertyUsage[] = "{$headline}\n```php\n\${$name} = \${$var}->get( '{$name}' {$default});\n```";
     }
-    $args .= " [, array \$params $last ]";
+    $args .= " [, array \$params$last ]";
 
     $req = '';
     if (!empty($required))

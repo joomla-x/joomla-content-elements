@@ -15,7 +15,7 @@ _See also:_
 ## Usage
 
 ```php
-$headline = new Headline( string $text [, int $level [, array $params  ] ] );
+$headline = new Headline( string $text [, int $level [, array $params ] ] );
 ```
 
 or

@@ -23,7 +23,7 @@ _From [Wikipedia](https://en.wikipedia.org/wiki/Button_(computing))_
 ## Usage
 
 ```php
-$button = new Button( string $label, string $url [, string $hint [, string $icon [, array $params  ] ] ] );
+$button = new Button( string $label, string $url [, string $hint [, string $icon [, array $params ] ] ] );
 ```
 
 or
