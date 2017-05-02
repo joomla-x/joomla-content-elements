@@ -67,6 +67,7 @@ foreach (glob($sourceDirectory .'*.php') as $file)
             $name = $arg->getName();
             $description = "The $name";
         }
+        $type = str_replace('Joomla\\Content\\', '', $type);
 
         $typedArg = "$type \$$name";
         if (!empty($args))

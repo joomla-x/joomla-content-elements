@@ -6,7 +6,7 @@ The purpose of this element is to add a title to an element for use in collectio
 ## Usage
 
 ```php
-$titledElement = new TitledElement( Joomla\Content\ContentElementInterface $element, string $title [, array $params  ] );
+$titledElement = new TitledElement( ContentElementInterface $element, string $title [, array $params  ] );
 ```
 
 or
@@ -21,7 +21,7 @@ $titledElement = TitledElement::from( array|object $data [, array $mapping [, ar
 
 Property | Type   | Description  | Required
 -------- | ------ | ------------ | ----
-element | Joomla\Content\ContentElementInterface | The element | yes
+element | ContentElementInterface | The element | yes
 title | string | The title for the wrapped element | yes
 
 #### Element
