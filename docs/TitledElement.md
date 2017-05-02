@@ -12,21 +12,23 @@ $titledElement = new TitledElement( ContentElementInterface $element, string $ti
 or
 
 ```php
-$titledElement = TitledElement::from( array|object $data [, array $mapping [, array $params ] ] );
+$titledElement = TitledElement::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
 ```
 
-`data` must contain values for the required constructor arguments `element` and `title`.
+`data` or `params` must contain values for the required constructor argument `title`.
 
 ## Properties
 
 Property | Type   | Description  | Required
 -------- | ------ | ------------ | ----
-element | ContentElementInterface | The element | yes
-title | string | The title for the wrapped element | yes
+element | ContentElementInterface | The wrapped element | yes
+title | string | The title for the wrapped element. | yes
 
 #### Element
 
-Get the element.
+Get the wrapped element.
+
+
 
 ```php
 $element = $titledElement->get( 'element' );
@@ -34,7 +36,9 @@ $element = $titledElement->get( 'element' );
 
 #### Title
 
-Get the title for the wrapped element. This title is not necessarily the same as the title of the element.
+Get the title for the wrapped element.
+
+This title is not necessarily the same as the title of the element.
 
 ```php
 $title = $titledElement->get( 'title' );

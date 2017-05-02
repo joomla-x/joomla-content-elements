@@ -24,7 +24,7 @@ or
 $headline = Headline::from( array|object $data [, array $mapping [, array $params ] ] );
 ```
 
- `text`.
+`data` must contain values for the required constructor argument `text`.
 
 ## Properties
 
@@ -37,13 +37,17 @@ level | int | The level of the headline | -
 
 Get the text for the headline.
 
+
+
 ```php
 $text = $headline->get( 'text' );
 ```
 
 #### Level
 
-Get the level of the headline. By default, the level is auto-detected depending on nesting. starting with 1.
+Get the level of the headline.
+
+
 
 ```php
 $level = $headline->get( 'level' [, $default ] );

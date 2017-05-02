@@ -47,6 +47,8 @@ icon | string | An optional icon name to represent the action | -
 
 Get the text on the button.
 
+
+
 ```php
 $label = $button->get( 'label' );
 ```
@@ -54,6 +56,8 @@ $label = $button->get( 'label' );
 #### Url
 
 Get the link to the action.
+
+
 
 ```php
 $url = $button->get( 'url' );
@@ -63,6 +67,8 @@ $url = $button->get( 'url' );
 
 Get a hint about the action.
 
+
+
 ```php
 $hint = $button->get( 'hint' [, $default ] );
 ```
@@ -70,6 +76,8 @@ $hint = $button->get( 'hint' [, $default ] );
 #### Icon
 
 Get an optional icon name to represent the action.
+
+
 
 ```php
 $icon = $button->get( 'icon' [, $default ] );

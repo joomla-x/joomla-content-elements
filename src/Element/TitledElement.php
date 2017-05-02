@@ -14,7 +14,11 @@ use Joomla\Content\ContentElementInterface;
 class TitledElement extends AbstractWrapper
 {
     /**
-     * @var array
+     * The title for the wrapped element.
+     *
+     * This title is not necessarily the same as the title of the element.
+     *
+     * @var string
      */
     protected $title;
 
@@ -22,8 +26,8 @@ class TitledElement extends AbstractWrapper
      * TitledElement constructor.
      *
      * @param ContentElementInterface $element The element to be wrapped
-     * @param string $title The title for the wrapped element. This title is not necessarily the same as the title of the element
-     * @param array $params The presentation parameters
+     * @param string                  $title   The title
+     * @param array                   $params  The presentation parameters
      */
     public function __construct(ContentElementInterface $element, $title, $params = [])
     {
@@ -35,9 +39,9 @@ class TitledElement extends AbstractWrapper
     /**
      * Create an element.
      *
-     * @param ContentElementInterface $data The element to be wrapped
-     * @param array $mapping The property mapping
-     * @param array $params The presentation parameters
+     * @param ContentElementInterface $data    The element to be wrapped
+     * @param array                   $mapping The property mapping
+     * @param array                   $params  The presentation parameters
      *
      * @return self
      */
