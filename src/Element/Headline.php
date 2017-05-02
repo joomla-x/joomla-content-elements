@@ -38,7 +38,7 @@ class Headline extends AbstractElement
      * Headline constructor.
      *
      * @param string $text The text for the headline
-     * @param integer $level The level of the headline, defaults to 1
+     * @param integer $level The level of the headline. By default, the level is auto-detected depending on nesting. starting with 1
      * @param array $params The presentation parameters
      */
     public function __construct($text, $level = 1, $params = [])

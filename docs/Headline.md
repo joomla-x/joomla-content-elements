@@ -31,7 +31,7 @@ $headline = Headline::from( array|object $data [, array $mapping [, array $param
 Property | Type   | Description  | Required
 -------- | ------ | ------------ | ----
 text | string | The text for the headline | yes
-level | int | The level of the headline, defaults to 1 | -
+level | int | The level of the headline | -
 
 #### Text
 
@@ -43,7 +43,7 @@ $text = $headline->get( 'text' );
 
 #### Level
 
-Get the level of the headline, defaults to 1.
+Get the level of the headline. By default, the level is auto-detected depending on nesting. starting with 1.
 
 ```php
 $level = $headline->get( 'level' [, $default ] );

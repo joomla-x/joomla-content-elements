@@ -88,7 +88,7 @@ foreach (glob($sourceDirectory .'*.php') as $file)
         $properties[] = implode(' | ', [
             'name' => $name,
             'type' => $type,
-            'description' => $description,
+            'description' => preg_replace('~\.\s+.*~', '', $description),
             'required' => $arg->isOptional() ? '-' : 'yes',
         ]);
 
