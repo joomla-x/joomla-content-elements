@@ -26,9 +26,6 @@ class ButtonTest extends \PHPUnit\Framework\TestCase
             'Parameter "class" does not have the expected value');
 
         $this->assertEquals($params, $button->getParameters(), 'Parameter array does not have the expected values');
-        $this->assertEquals(null, $button->getParameter('unknown'), 'Unknown parameter does not return null');
-        $this->assertEquals('default', $button->getParameter('unknown', 'default'),
-            'Unknown parameter with default does not return default');
     }
 
     public function testButtonFromArray()

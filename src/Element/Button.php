@@ -96,8 +96,8 @@ class Button extends AbstractElement
         return new self(
             $data[$map['label']],
             $data[$map['url']],
-            array_key_exists('hint', $data) ? $data[$map['hint']] : null,
-            array_key_exists('icon', $data) ? $data[$map['icon']] : null,
+            array_key_exists('hint', $map) ? $data[$map['hint']] : null,
+            array_key_exists('icon', $map) ? $data[$map['icon']] : null,
             $params
         );
     }

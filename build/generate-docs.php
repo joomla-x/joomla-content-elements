@@ -6,65 +6,6 @@ $baseDir = dirname(__DIR__);
 
 require_once $baseDir . '/vendor/autoload.php';
 
-$template = <<<MD
-
-# %NAMESPACE%\%CLASS%
-
-%SUMMARY%
-
-## Usage
-
-```php
-%CONSTRUCTOR%
-```
-
-or
-
-```php
-%FROMDATA%
-```
-
-%REQUIRED%
-
-## Properties
-
-Property | Type   | Description  | Required
--------- | ------ | ------------ | ----
-%PROPERTIES%
-
-## Parameters
-
-Parameters are optional settings for the presentation.
-All elements can have 'id' and 'class' parameters; other depend on environment 
-and/or renderer.
-
-Parameter | Type   | Description
---------- | ------ | -----------
-id        | string | The ID of the element
-class     | string | CSS class
-
-#### Parameter List
-
-Get an associative array with all parameters.
-
-```php
-\$params = \$%VARNAME%->getParameters();
-```
-
-#### Single Parameter
-
-Retrieve a single parameter. Default should be provided.
-
-```php
-\$id    = \$%VARNAME%->getParameter( 'id' [, \$default ] );
-\$class = \$%VARNAME%->getParameter( 'class' [, \$default ] );
-```
-
-## Examples
-
-%EXAMPLES%
-MD;
-
 $sourceDirectory = $baseDir . '/src/Element/';
 
 $factory = DocBlockFactory::createInstance();
@@ -186,6 +127,65 @@ foreach (glob($sourceDirectory .'*.php') as $file)
         '%REQUIRED%' => $req,
         '%EXAMPLES%' => '',
     ];
+
+    $template = <<<MD
+
+# %NAMESPACE%\%CLASS%
+
+%SUMMARY%
+
+## Usage
+
+```php
+%CONSTRUCTOR%
+```
+
+or
+
+```php
+%FROMDATA%
+```
+
+%REQUIRED%
+
+## Properties
+
+Property | Type   | Description  | Required
+-------- | ------ | ------------ | ----
+%PROPERTIES%
+
+## Parameters
+
+Parameters are optional settings for the presentation.
+All elements can have 'id' and 'class' parameters; other depend on environment 
+and/or renderer.
+
+Parameter | Type   | Description
+--------- | ------ | -----------
+id        | string | The ID of the element
+class     | string | CSS class
+
+#### Parameter List
+
+Get an associative array with all parameters.
+
+```php
+\$params = \$%VARNAME%->getParameters();
+```
+
+#### Single Parameter
+
+Retrieve a single parameter. Default should be provided.
+
+```php
+\$id    = \$%VARNAME%->getParameter( 'id' [, \$default ] );
+\$class = \$%VARNAME%->getParameter( 'class' [, \$default ] );
+```
+
+## Examples
+
+%EXAMPLES%
+MD;
 
     $template = str_replace(array_keys($replace), array_values($replace), $template);
 

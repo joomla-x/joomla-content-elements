@@ -20,7 +20,7 @@
     }
   },
   "require": {
-    "nibra/joomla-standards-contenttypes": "^0.2.1"
+    "nibra/joomla-standards-contenttypes": "@dev"
   },
   "require-dev": {
     "phpunit/phpunit": "^6.1"
@@ -28,6 +28,9 @@
   "scripts": {
     "docs": [
       "build/generate-docs.php"
+    ],
+    "pull": [
+      "composer update nibra/joomla-standards-contenttypes"
     ]
   }
 }

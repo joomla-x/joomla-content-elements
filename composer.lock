@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "36a7ee32f1fdafa1ba3e1bc69ee8e286",
-    "content-hash": "c267d2c2b1bce24b26cff34af1485d7a",
+    "hash": "f06be889129a4513e0c45860c099b460",
+    "content-hash": "f42265e29789a7ad7c8fdfb897c435b9",
     "packages": [
         {
             "name": "nibra/joomla-standards-contenttypes",
-            "version": "0.2.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nibra/joomla-standards-contenttypes.git",
-                "reference": "d142a6b5307e98579410f01e6750a03e36b0bb21"
+                "reference": "ca3977a1a5695c15c4f5db9f98d5fff1d201cd01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nibra/joomla-standards-contenttypes/zipball/d142a6b5307e98579410f01e6750a03e36b0bb21",
-                "reference": "d142a6b5307e98579410f01e6750a03e36b0bb21",
+                "url": "https://api.github.com/repos/nibra/joomla-standards-contenttypes/zipball/ca3977a1a5695c15c4f5db9f98d5fff1d201cd01",
+                "reference": "ca3977a1a5695c15c4f5db9f98d5fff1d201cd01",
                 "shasum": ""
             },
             "require": {
@@ -58,7 +58,7 @@
                 "joomla-x",
                 "pythagoras"
             ],
-            "time": "2017-05-01 14:12:22"
+            "time": "2017-05-02 12:19:03"
         }
     ],
     "packages-dev": [
@@ -1514,7 +1514,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "nibra/joomla-standards-contenttypes": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
