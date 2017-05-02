@@ -13,7 +13,7 @@ foreach (glob($sourceDirectory .'*.php') as $file)
 {
     $elementName = basename($file, '.php');
 
-    if ($elementName == 'AbstractElement')
+    if (preg_match('~Abstract~', $elementName))
     {
         continue;
     }
