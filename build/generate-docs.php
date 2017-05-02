@@ -43,14 +43,32 @@ Parameter | Type   | Description
 id        | string | The ID of the element
 class     | string | CSS class
 
+#### Parameter List
+
+Get an associative array with all parameters.
+
+```php
+\$params = \$%VARNAME%->getParameters();
+```
+
+#### Single Parameter
+
+Retrieve a single parameter. Default should be provided.
+
+```php
+\$id    = \$%VARNAME%->getParameter( 'id' [, \$default ] );
+\$class = \$%VARNAME%->getParameter( 'class' [, \$default ] );
+```
+
 ## Examples
 
 %EXAMPLES%
 MD;
 
-$factory = DocBlockFactory::createInstance();
+$sourceDirectory = $baseDir . '/src/Element/';
 
-foreach (glob($baseDir . '/src/Element/*.php') as $file)
+$factory = DocBlockFactory::createInstance();
+foreach (glob($sourceDirectory .'*.php') as $file)
 {
     $elementName = basename($file, '.php');
 
@@ -83,10 +101,13 @@ foreach (glob($baseDir . '/src/Element/*.php') as $file)
 
     $tags = $ctorDocBlock->getTagsByName('param');
 
+    $var = lcfirst($elementName);
+
     $args = '';
     $last = '';
     $properties = [];
     $required = [];
+    $propertyUsage = [];
 
     foreach ($constructorArgs as $arg)
     {
@@ -129,9 +150,16 @@ foreach (glob($baseDir . '/src/Element/*.php') as $file)
             'description' => $description,
             'required' => $arg->isOptional() ? '-' : 'yes',
         ]);
+
+        $default = '';
+        if ($arg->isOptional())
+        {
+            $default = "[, \$default ] ";
+        }
+        $headline = "\n#### " . ucfirst($name) . "\n\nGet " . lcfirst($description) . ".\n";
+        $propertyUsage[] = "{$headline}\n```php\n\${$name} = \${$var}->get( '{$name}' {$default});\n```";
     }
-    $args .= $last;
-    $var = lcfirst($elementName);
+    $args .= " [, array \$params $last ]";
 
     $req = '';
     if (!empty($required))
@@ -150,8 +178,9 @@ foreach (glob($baseDir . '/src/Element/*.php') as $file)
     $replace = [
         '%NAMESPACE%' => $namespace,
         '%CLASS%' => $elementName,
+        '%VARNAME%' => $var,
         '%SUMMARY%' => sprintf('%s', (string) $classDescription),
-        '%PROPERTIES%' => implode("\n", $properties),
+        '%PROPERTIES%' => implode("\n", $properties) . "\n" . implode("\n", $propertyUsage),
         '%CONSTRUCTOR%' => "\$$var = new $elementName( $args );",
         '%FROMDATA%' => "\$$var = $elementName::from( array|object \$data [, array \$mapping [, array \$params ] ] );",
         '%REQUIRED%' => $req,

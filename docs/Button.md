@@ -23,7 +23,7 @@ _From [Wikipedia](https://en.wikipedia.org/wiki/Button_(computing))_
 ## Usage
 
 ```php
-$button = new Button( string $label, string $url [, string $hint [, string $icon ] ] );
+$button = new Button( string $label, string $url [, string $hint [, string $icon [, array $params  ] ] ] );
 ```
 
 or
@@ -43,6 +43,38 @@ url | string | The link to the action | yes
 hint | string | A hint about the action | -
 icon | string | An optional icon name to represent the action | -
 
+#### Label
+
+Get the text on the button.
+
+```php
+$label = $button->get( 'label' );
+```
+
+#### Url
+
+Get the link to the action.
+
+```php
+$url = $button->get( 'url' );
+```
+
+#### Hint
+
+Get a hint about the action.
+
+```php
+$hint = $button->get( 'hint' [, $default ] );
+```
+
+#### Icon
+
+Get an optional icon name to represent the action.
+
+```php
+$icon = $button->get( 'icon' [, $default ] );
+```
+
 ## Parameters
 
 Parameters are optional settings for the presentation.
@@ -53,6 +85,23 @@ Parameter | Type   | Description
 --------- | ------ | -----------
 id        | string | The ID of the element
 class     | string | CSS class
+
+#### Parameter List
+
+Get an associative array with all parameters.
+
+```php
+$params = $button->getParameters();
+```
+
+#### Single Parameter
+
+Retrieve a single parameter. Default should be provided.
+
+```php
+$id    = $button->getParameter( 'id' [, $default ] );
+$class = $button->getParameter( 'class' [, $default ] );
+```
 
 ## Examples
 
