@@ -94,11 +94,11 @@ abstract class AbstractCompositeElement extends AbstractElement implements Compo
     /**
      * @param mixed $data
      */
-    protected static function checkType($data)
+    protected static function checkType($data, $expected = ContentElementInterface::class)
     {
-        if (!$data instanceof ContentElementInterface) {
-            $type = is_object($data) ? get_class($data) : gettype($data);
-            throw new \RuntimeException("Can only compose Content Elements, $type given.");
+        if (!$data instanceof $expected) {
+            $actual = is_object($data) ? get_class($data) : gettype($data);
+            throw new \RuntimeException("Can only child elements of type $expected, $actual given.");
         }
     }
 }

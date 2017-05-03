@@ -43,7 +43,7 @@ class Tabs extends AbstractCompositeElement
      */
     public static function from($data, $mapping = [], $params = [])
     {
-        self::checkType($data);
+        self::checkType($data, Panel::class);
 
         return new static([$data], $params);
     }
