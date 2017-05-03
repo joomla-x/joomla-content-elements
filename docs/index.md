@@ -7,7 +7,9 @@
 
 ## Structural Content Elements
 
+- [Columns](Columns.md)
 - [Panel](Panel.md)
+- [Rows](Rows.md)
 
 ## Behavioural Content Elements
 
