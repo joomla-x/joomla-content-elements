@@ -1,18 +1,18 @@
 
-# Joomla\Content\Element\TitledElement
+# Joomla\Content\Element\Panel
 
 The purpose of this element is to add a title to an element for use in collections, like accordions or tabs.
 
 ## Usage
 
 ```php
-$titledElement = new TitledElement( ContentElementInterface $element, string $title [, array $params ] );
+$panel = new Panel( ContentElementInterface[] $elements, string $title [, array $params ] );
 ```
 
 or
 
 ```php
-$titledElement = TitledElement::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
+$panel = Panel::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
 ```
 
 `data` or `params` must contain values for the required constructor argument `title`.
@@ -21,27 +21,27 @@ $titledElement = TitledElement::from( ContentElementInterface $data [, array $ma
 
 Property | Type   | Description  | Required
 -------- | ------ | ------------ | ----
-element | ContentElementInterface | The wrapped element | yes
+elements | ContentElementInterface[] | The child elements | yes
 title | string | The title for the wrapped element. | yes
 
-#### Element
+#### Elements
 
-Get the wrapped element.
+Get the child elements.
 
 
 
 ```php
-$element = $titledElement->get( 'element' );
+$elements = $panel->getElements();
 ```
 
 #### Title
 
 Get the title for the wrapped element.
 
-This title is not necessarily the same as the title of the element.
+
 
 ```php
-$title = $titledElement->get( 'title' );
+$title = $panel->get( 'title' );
 ```
 
 ## Parameters
@@ -60,7 +60,7 @@ class     | string | CSS class
 Get an associative array with all parameters.
 
 ```php
-$params = $titledElement->getParameters();
+$params = $panel->getParameters();
 ```
 
 #### Single Parameter
@@ -68,8 +68,8 @@ $params = $titledElement->getParameters();
 Retrieve a single parameter. Default should be provided.
 
 ```php
-$id    = $titledElement->getParameter( 'id' [, $default ] );
-$class = $titledElement->getParameter( 'class' [, $default ] );
+$id    = $panel->getParameter( 'id' [, $default ] );
+$class = $panel->getParameter( 'class' [, $default ] );
 ```
 
 ## Examples

@@ -7,8 +7,6 @@ $baseDir = dirname(__DIR__);
 
 require_once $baseDir . '/vendor/autoload.php';
 
-$sourceDirectory = $baseDir . '/src/Element/';
-
 class ClassAccessor
 {
     /** @var  DocBlockFactory */
@@ -36,45 +34,6 @@ class ClassAccessor
         return $this->factory->create($this->reflector->getDocComment());
     }
 
-    public function getProperties()
-    {
-        $properties = [];
-        foreach ($this->reflector->getProperties() as $property)
-        {
-            if ($property->isPrivate())
-            {
-                continue;
-            }
-
-            $docBlock = $this->factory->create($property->getDocComment());
-            $varTags = $docBlock->getTagsByName('var');
-
-            $type = null;
-            if (count($varTags) > 0)
-            {
-                $varTag = array_shift($varTags);
-                $type = preg_replace('~^@var\s+(\S+).*$~', '\\1', $varTag->render());
-            }
-
-            $properties[$property->getName()] = [
-                'type' => $type,
-                'name' => $property->getName(),
-                'summary' => $docBlock->getSummary(),
-                'description' => $docBlock->getDescription(),
-            ];
-        }
-
-        return $properties;
-    }
-
-    /**
-     * @return \phpDocumentor\Reflection\DocBlock
-     */
-    public function getConstructorDocBlock()
-    {
-        return $this->factory->create($this->reflector->getConstructor()->getDocComment());
-    }
-
     /**
      * @return ReflectionParameter[]
      */
@@ -89,20 +48,9 @@ class ClassAccessor
     /**
      * @return \phpDocumentor\Reflection\DocBlock
      */
-    public function getMethodDocBlock($method)
+    public function getConstructorDocBlock()
     {
-        return $this->factory->create($this->reflector->getMethod($method)->getDocComment());
-    }
-
-    /**
-     * @return ReflectionParameter[]
-     */
-    public function getMethodArgs($method)
-    {
-        $args = $this->reflector->getMethod($method)->getParameters();
-        $tags = $this->getMethodDocBlock($method)->getTagsByName('param');
-
-        return $this->processMethodArgs($args, $tags);
+        return $this->factory->create($this->reflector->getConstructor()->getDocComment());
     }
 
     /**
@@ -150,130 +98,173 @@ class ClassAccessor
         }
         return $methodArgs;
     }
+
+    public function getProperties()
+    {
+        $properties = [];
+        foreach ($this->reflector->getProperties() as $property) {
+            if ($property->isPrivate()) {
+                continue;
+            }
+
+            $docBlock = $this->factory->create($property->getDocComment());
+            $varTags = $docBlock->getTagsByName('var');
+
+            $type = null;
+            if (count($varTags) > 0) {
+                $varTag = array_shift($varTags);
+                $type = preg_replace('~^@var\s+(\S+).*$~', '\\1', $varTag->render());
+            }
+
+            $properties[$property->getName()] = [
+                'type' => $type,
+                'name' => $property->getName(),
+                'summary' => $docBlock->getSummary(),
+                'description' => $docBlock->getDescription(),
+            ];
+        }
+
+        return $properties;
+    }
+
+    /**
+     * @param string $method
+     * @return ReflectionParameter[]
+     */
+    public function getMethodArgs($method)
+    {
+        $args = $this->reflector->getMethod($method)->getParameters();
+        $tags = $this->getMethodDocBlock($method)->getTagsByName('param');
+
+        return $this->processMethodArgs($args, $tags);
+    }
+
+    /**
+     * @param string $method
+     * @return \phpDocumentor\Reflection\DocBlock
+     */
+    public function getMethodDocBlock($method)
+    {
+        return $this->factory->create($this->reflector->getMethod($method)->getDocComment());
+    }
 }
 
-$factory = DocBlockFactory::createInstance();
-foreach (glob($sourceDirectory .'*.php') as $file)
+class DocGenerator
 {
-    $elementName = basename($file, '.php');
-
-    if (preg_match('~Abstract~', $elementName))
+    public function process($sourceDirectory, $docsDirectory)
     {
-        continue;
-    }
+        $factory = DocBlockFactory::createInstance();
+        foreach (glob($sourceDirectory . '*.php') as $file) {
+            $elementName = basename($file, '.php');
 
-    $namespace = preg_replace('~^.*namespace\s+([^;]+).*$~sm', '\1', file_get_contents($file));
+            if (preg_match('~Abstract~', $elementName)) {
+                continue;
+            }
 
-    $className = $namespace . '\\' . $elementName;
+            $namespace = preg_replace('~^.*namespace\s+([^;]+).*$~sm', '\1', file_get_contents($file));
 
-    $classAccessor   = new ClassAccessor($className, $factory);
-    $classDocBlock   = $classAccessor->getClassDocBlock();
-    $ctorDocBlock    = $classAccessor->getConstructorDocBlock();
-    $constructorArgs = $classAccessor->getConstructorArgs();
-    $fromMethodArgs  = $classAccessor->getMethodArgs('from');
+            $className = $namespace . '\\' . $elementName;
 
-    $classSummary = $classDocBlock->getSummary();
+            $classAccessor = new ClassAccessor($className, $factory);
+            $classDocBlock = $classAccessor->getClassDocBlock();
+            $constructorArgs = $classAccessor->getConstructorArgs();
+            $fromMethodArgs = $classAccessor->getMethodArgs('from');
 
-    $classDescription = $classDocBlock->getDescription();
+            $classDescription = $classDocBlock->getDescription();
 
-    $ctorSummary = $ctorDocBlock->getSummary();
+            $var = lcfirst($elementName);
 
-    $ctorDescription = $ctorDocBlock->getDescription();
+            $args = '';
+            $last = '';
+            $properties = [];
+            $required = [];
+            $propertyUsage = [];
 
-    $tags = $ctorDocBlock->getTagsByName('param');
+            foreach ($constructorArgs as $arg) {
+                $type = str_replace('Joomla\\Content\\', '', $arg['type']);
+                $name = $arg['name'];
+                $summary = $arg['summary'];
+                $description = $arg['description'];
 
-    $var = lcfirst($elementName);
+                $typedArg = "$type \$$name";
+                if (!empty($args)) {
+                    $typedArg = ', ' . $typedArg;
+                }
+                if ($arg['required'] == false) {
+                    $typedArg = ' [' . $typedArg;
+                    $last .= ' ]';
+                } else {
+                    $required[] = $name;
+                }
 
-    $args = '';
-    $last = '';
-    $properties = [];
-    $required = [];
-    $propertyUsage = [];
+                $args .= $typedArg;
 
-    foreach ($constructorArgs as $arg)
-    {
-        $type = str_replace('Joomla\\Content\\', '', $arg['type']);
-        $name = $arg['name'];
-        $summary = $arg['summary'];
-        $description = $arg['description'];
+                if ($name == 'params') {
+                    continue;
+                }
 
-        $typedArg = "$type \$$name";
-        if (!empty($args))
-        {
-            $typedArg = ', ' . $typedArg;
-        }
-        if ($arg['required'] == false)
-        {
-            $typedArg = ' [' . $typedArg;
-            $last .= ' ]';
-        }
-        else
-        {
-            $required[] = $name;
-        }
+                $properties[] = implode(' | ', [
+                    'name' => $name,
+                    'type' => $type,
+                    'description' => empty($summary) ? preg_replace('~\.\s+.*~', '', $description) : $summary,
+                    'required' => $arg['required'] ? 'yes' : '-',
+                ]);
 
-        $args .= $typedArg;
+                if ($name == 'elements') {
+                    $headline = "\n#### " . ucfirst($name) . "\n\nGet " . rtrim(lcfirst($summary), '.') . ".\n";
+                    if (!empty($description)) {
+                        $headline .= "\n{$description}\n";
+                    }
+                    $propertyUsage[] = "{$headline}\n```php\n\${$name} = \${$var}->getElements();\n```";
 
-        if ($name == 'params')
-        {
-            continue;
-        }
+                    continue;
+                }
 
-        $properties[] = implode(' | ', [
-            'name' => $name,
-            'type' => $type,
-            'description' => empty($summary) ? preg_replace('~\.\s+.*~', '', $description) : $summary,
-            'required' => $arg['required'] ? 'yes' : '-',
-        ]);
+                $default = '';
+                if ($arg['required'] == false) {
+                    $default = "[, \$default ] ";
+                }
+                $headline = "\n#### " . ucfirst($name) . "\n\nGet " . rtrim(lcfirst($summary), '.') . ".\n";
+                if (!empty($description)) {
+                    $headline .= "\n{$description}\n";
+                }
+                $propertyUsage[] = "{$headline}\n```php\n\${$name} = \${$var}->get( '{$name}' {$default});\n```";
+            }
+            $args .= $last;
+            $args = trim($args);
 
-        $default = '';
-        if ($arg['required'] == false)
-        {
-            $default = "[, \$default ] ";
-        }
-        $headline = "\n#### " . ucfirst($name) . "\n\nGet " . rtrim(lcfirst($summary), '.') . ".\n";
-        if (!empty($description))
-        {
-            $headline .= "\n{$description}\n";
-        }
-        $propertyUsage[] = "{$headline}\n```php\n\${$name} = \${$var}->get( '{$name}' {$default});\n```";
-    }
-    $args .= $last;
+            $req = '';
+            $firstArg = reset($fromMethodArgs);
+            $orParams = '';
+            if ($firstArg['type'] != 'array|object') {
+                array_shift($required);
+                $orParams = ' or `params`';
+            }
+            if (!empty($required)) {
+                $req = "`{$firstArg['name']}`{$orParams} must contain values for the required constructor argument";
+                if (count($required) > 1) {
+                    $last = array_pop($required);
+                    $req .= 's `';
+                    $req .= implode('`, `', $required);
+                    $req .= '` and `' . $last . '`.';
+                } else {
+                    $req .= ' `' . $required[0] . '`.';
+                }
+            }
 
-    $req = '';
-    $firstArg = reset($fromMethodArgs);
-    $orParams = '';
-    if ($firstArg['type'] != 'array|object')
-    {
-        array_shift($required);
-        $orParams = ' or `params`';
-    }
-    if (!empty($required))
-    {
-        $req = "`{$firstArg['name']}`{$orParams} must contain values for the required constructor argument";
-        if (count($required) > 1) {
-            $last = array_pop($required);
-            $req .= 's `';
-            $req .= implode('`, `', $required);
-            $req .= '` and `' . $last . '`.';
-        } else {
-            $req .= ' `' . $required[0] . '`.';
-        }
-    }
+            $replace = [
+                '%NAMESPACE%' => $namespace,
+                '%CLASS%' => $elementName,
+                '%VARNAME%' => $var,
+                '%SUMMARY%' => sprintf('%s', (string)$classDescription),
+                '%PROPERTIES%' => implode("\n", $properties) . "\n" . implode("\n", $propertyUsage),
+                '%CONSTRUCTOR%' => "\$$var = new $elementName( $args );",
+                '%FROMDATA%' => "\$$var = $elementName::from( {$fromMethodArgs['data']['type']} \${$fromMethodArgs['data']['name']} [, array \$mapping [, array \$params ] ] );",
+                '%REQUIRED%' => $req,
+                '%EXAMPLES%' => '',
+            ];
 
-    $replace = [
-        '%NAMESPACE%' => $namespace,
-        '%CLASS%' => $elementName,
-        '%VARNAME%' => $var,
-        '%SUMMARY%' => sprintf('%s', (string) $classDescription),
-        '%PROPERTIES%' => implode("\n", $properties) . "\n" . implode("\n", $propertyUsage),
-        '%CONSTRUCTOR%' => "\$$var = new $elementName( $args );",
-        '%FROMDATA%' => "\$$var = $elementName::from( {$fromMethodArgs['data']['type']} \${$fromMethodArgs['data']['name']} [, array \$mapping [, array \$params ] ] );",
-        '%REQUIRED%' => $req,
-        '%EXAMPLES%' => '',
-    ];
-
-    $template = <<<MD
+            $template = <<<MD
 
 # %NAMESPACE%\%CLASS%
 
@@ -332,7 +323,12 @@ Retrieve a single parameter. Default should be provided.
 %EXAMPLES%
 MD;
 
-    $template = str_replace(array_keys($replace), array_values($replace), $template);
+            $template = str_replace(array_keys($replace), array_values($replace), $template);
 
-    file_put_contents($baseDir . '/docs/' . $elementName . '.md', $template);
+            file_put_contents($docsDirectory . $elementName . '.md', $template);
+        }
+    }
 }
+
+$generator = new DocGenerator();
+$generator->process($baseDir . '/src/Element/', $baseDir . '/docs/');
