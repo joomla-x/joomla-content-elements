@@ -52,6 +52,8 @@ abstract class AbstractCompositeElement extends AbstractElement implements Compo
                 return;
             }
         }
+
+        throw new \RuntimeException('Unable to remove element');
     }
 
     /**

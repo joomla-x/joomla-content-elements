@@ -131,4 +131,38 @@ class PanelTest extends \PHPUnit\Framework\TestCase
             $call
         );
     }
+
+    public function testPanelChildElementsCanBeRemoved()
+    {
+        $element = $this->elements[0];
+        $count = count($this->panel->getElements());
+        $this->panel->removeElement($element);
+
+        $this->assertEquals($count - 1, count($this->panel->getElements()));
+    }
+
+    public function testPanelThrowsExceptionOnRemovalOfNonexistentChildElement()
+    {
+        $this->expectException(\Exception::class);
+
+        $element = new Headline('Bar');
+        $this->panel->removeElement($element);
+    }
+
+    public function testPanelThrowsExceptionOnWrongClass()
+    {
+        $this->expectException(\Exception::class);
+
+        /** @var ContentElementInterface $element */
+        $element = new \stdClass();
+        Panel::from($element);
+    }
+
+    public function testPanelThrowsExceptionOnMissingProperty()
+    {
+        $this->expectException(\Exception::class);
+
+        $element = new Headline('Bar');
+        Panel::from($element);
+    }
 }

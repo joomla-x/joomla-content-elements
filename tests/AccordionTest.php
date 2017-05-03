@@ -4,6 +4,7 @@ namespace Joomla\Tests\Content;
 
 use Joomla\Content\ContentElementInterface;
 use Joomla\Content\Element\Accordion;
+use Joomla\Content\Element\Headline;
 use Joomla\Content\Element\Panel;
 use Joomla\Tests\Content\Mock\Visitor;
 
@@ -75,5 +76,30 @@ class AccordionTest extends \PHPUnit\Framework\TestCase
             ],
             $call
         );
+    }
+
+    public function testAccordionChildElementsCanBeRemoved()
+    {
+        $element = $this->elements[0];
+        $count = count($this->accordion->getElements());
+        $this->accordion->removeElement($element);
+
+        $this->assertEquals($count - 1, count($this->accordion->getElements()));
+    }
+
+    public function testAccordionThrowsExceptionOnRemovalOfNonexistentChildElement()
+    {
+        $this->expectException(\Exception::class);
+
+        $element = new Panel([], 'Title');
+        $this->accordion->removeElement($element);
+    }
+
+    public function testAccordionThrowsExceptionOnWrongClass()
+    {
+        $this->expectException(\Exception::class);
+
+        $element = new Headline('Foo');
+        Accordion::from($element);
     }
 }

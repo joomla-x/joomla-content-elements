@@ -3,6 +3,7 @@
 namespace Joomla\Tests\Content;
 
 use Joomla\Content\ContentElementInterface;
+use Joomla\Content\Element\Headline;
 use Joomla\Content\Element\Tabs;
 use Joomla\Content\Element\Panel;
 use Joomla\Tests\Content\Mock\Visitor;
@@ -75,5 +76,30 @@ class TabsTest extends \PHPUnit\Framework\TestCase
             ],
             $call
         );
+    }
+
+    public function testTabsChildElementsCanBeRemoved()
+    {
+        $element = $this->elements[0];
+        $count = count($this->tabs->getElements());
+        $this->tabs->removeElement($element);
+
+        $this->assertEquals($count - 1, count($this->tabs->getElements()));
+    }
+
+    public function testTabsThrowsExceptionOnRemovalOfNonexistentChildElement()
+    {
+        $this->expectException(\Exception::class);
+
+        $element = new Panel([], 'Title');
+        $this->tabs->removeElement($element);
+    }
+
+    public function testTabsThrowsExceptionOnWrongClass()
+    {
+        $this->expectException(\Exception::class);
+
+        $element = new Headline('Foo');
+        Tabs::from($element);
     }
 }
