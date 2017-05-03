@@ -1,7 +1,12 @@
 
 # Joomla\Content\Element\Panel
 
-The purpose of this element is to add a title to an element for use in collections, like accordions or tabs.
+A panel is a particular arrangement of information grouped together for presentation to users in a window or pop-up.
+
+_From [Wikipedia](https://en.wikipedia.org/wiki/Panel_(computer_software))_
+
+Panels are used to add a title to a group of elements for use in collections, like [Accordion](Accordion.md) or
+[Tabs](Tabs.md).
 
 ## Usage
 
@@ -22,7 +27,7 @@ $panel = Panel::from( ContentElementInterface $data [, array $mapping [, array $
 Property | Type   | Description  | Required
 -------- | ------ | ------------ | ----
 elements | ContentElementInterface[] | The child elements | yes
-title | string | The title for the wrapped element. | yes
+title | string | The title for the panel. | yes
 
 #### Elements
 
@@ -36,7 +41,7 @@ $elements = $panel->getElements();
 
 #### Title
 
-Get the title for the wrapped element.
+Get the title for the panel.
 
 
 

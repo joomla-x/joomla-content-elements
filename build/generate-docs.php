@@ -186,9 +186,9 @@ class DocGenerator
                 $summary = $arg['summary'];
                 $description = $arg['description'];
 
-                $typedArg = "$type \$$name";
+                $typedArg = " $type \$$name";
                 if (!empty($args)) {
-                    $typedArg = ', ' . $typedArg;
+                    $typedArg = ',' . $typedArg;
                 }
                 if ($arg['required'] == false) {
                     $typedArg = ' [' . $typedArg;

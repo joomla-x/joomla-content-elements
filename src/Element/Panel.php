@@ -7,14 +7,19 @@ use Joomla\Content\ContentElementInterface;
 /**
  * Class Panel
  *
- * The purpose of this element is to add a title to an element for use in collections, like accordions or tabs.
+ * A panel is a particular arrangement of information grouped together for presentation to users in a window or pop-up.
+ *
+ * _From [Wikipedia](https://en.wikipedia.org/wiki/Panel_(computer_software))_
+ *
+ * Panels are used to add a title to a group of elements for use in collections, like [Accordion](Accordion.md) or
+ * [Tabs](Tabs.md).
  *
  * @package Joomla\Content\Element
  */
 class Panel extends AbstractCompositeElement
 {
     /**
-     * The title for the wrapped element.
+     * The title for the panel.
      *
      * @var string
      */
@@ -23,11 +28,11 @@ class Panel extends AbstractCompositeElement
     /**
      * Panel constructor.
      *
-     * @param ContentElementInterface[] $elements The element to be wrapped
+     * @param ContentElementInterface[] $elements The elements to be wrapped
      * @param string $title The title
      * @param array $params The presentation parameters
      */
-    public function __construct($elements = [], $title, $params = [])
+    public function __construct($elements, $title, $params = [])
     {
         $this->title = $title;
 

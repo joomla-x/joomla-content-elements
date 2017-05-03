@@ -30,7 +30,7 @@ _From [Wikipedia](https://en.wikipedia.org/wiki/Accordion_(GUI))_
 ## Usage
 
 ```php
-$accordion = new Accordion( [Panel[] $elements [, array $params ] ] );
+$accordion = new Accordion( [ Panel[] $elements [, array $params ] ] );
 ```
 
 or
