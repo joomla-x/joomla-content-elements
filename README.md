@@ -9,6 +9,8 @@ based on the proposed [Joomla! specification for Content Elements][content-eleme
 
 The documentation in the `docs` directory is generated from the sources.
 
+[Read the documentation](docs/index.md)
+
 ## License
 
 [MIT License](LICENSE)
