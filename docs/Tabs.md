@@ -1,4 +1,4 @@
-
+[◄ Back to index](index.md)
 # Joomla\Content\Element\Tabs
 
 A tabbed document interface (TDI) or Tab is a graphical control element that allows multiple documents or panels to

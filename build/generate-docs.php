@@ -265,7 +265,7 @@ class DocGenerator
             ];
 
             $template = <<<MD
-
+[◄ Back to index](index.md)
 # %NAMESPACE%\%CLASS%
 
 %SUMMARY%

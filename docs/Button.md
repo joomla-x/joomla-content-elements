@@ -1,4 +1,4 @@
-
+[◄ Back to index](index.md)
 # Joomla\Content\Element\Button
 
 A typical button is a rectangle or rounded rectangle, wider than it is tall, with a descriptive caption in its center.

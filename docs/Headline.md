@@ -1,4 +1,4 @@
-
+[◄ Back to index](index.md)
 # Joomla\Content\Element\Headline
 
 The headline (also heading, head or title, or hed in journalism jargon) of a story is typically a complete sentence

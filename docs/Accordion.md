@@ -1,4 +1,4 @@
-
+[◄ Back to index](index.md)
 # Joomla\Content\Element\Accordion
 
 An accordion is a graphical control element comprising a vertically stacked list of items, such as labels or

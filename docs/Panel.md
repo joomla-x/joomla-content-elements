@@ -1,4 +1,4 @@
-
+[◄ Back to index](index.md)
 # Joomla\Content\Element\Panel
 
 A panel is a particular arrangement of information grouped together for presentation to users in a window or pop-up.
