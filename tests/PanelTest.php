@@ -2,6 +2,7 @@
 
 namespace Joomla\Tests\Content;
 
+use Joomla\Content\ContentElementInterface;
 use Joomla\Content\Element\Button;
 use Joomla\Content\Element\Headline;
 use Joomla\Content\Element\Panel;
@@ -9,25 +10,43 @@ use Joomla\Tests\Content\Mock\Visitor;
 
 class PanelTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPanelConstructor()
+    /** @var  ContentElementInterface[] */
+    private $elements;
+
+    /** @var  string */
+    private $title;
+
+    /** @var  array */
+    private $params;
+
+    /** @var  Panel */
+    private $panel;
+
+    public function setUp()
     {
-        $elements = [
+        $this->elements = [
             new Headline('Foo'),
             new Button('Ok', '#'),
         ];
-        $title = 'Composed Element';
-        $params = [
+        $this->title = 'Composed Element';
+        $this->params = [
             'class' => 'special',
         ];
-        $panel = new Panel($elements, $title, $params);
+        $this->panel = new Panel($this->elements, $this->title, $this->params);
+    }
 
-        $this->assertEquals($elements, $panel->getElements(),
+    public function testPanelConstructor()
+    {
+        $this->assertEquals($this->elements, $this->panel->getElements(),
             'Property "elements" does not have the expected value');
-        $this->assertEquals($title, $panel->get('title'), 'Property "title" does not have the expected value');
-        $this->assertEquals('special', $panel->getParameter('class'),
+
+        $this->assertEquals($this->title, $this->panel->get('title'),
+            'Property "title" does not have the expected value');
+
+        $this->assertEquals('special', $this->panel->getParameter('class'),
             'Parameter "class" does not have the expected value');
 
-        $this->assertEquals($params, $panel->getParameters(),
+        $this->assertEquals($this->params, $this->panel->getParameters(),
             'Parameter array does not have the expected values');
     }
 
@@ -44,7 +63,9 @@ class PanelTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals([$element], $panel->getElements(),
             'Property "elements" does not have the expected value');
+
         $this->assertEquals('Foo', $panel->get('title'), 'Property "title" does not have the expected value');
+
         $this->assertEquals('special', $panel->getParameter('class'),
             'Parameter "class" does not have the expected value');
 
@@ -78,64 +99,26 @@ class PanelTest extends \PHPUnit\Framework\TestCase
 
     public function testPanelThrowsExceptionOnAccessOfNonexistentProperty()
     {
-        $elements = [
-            new Headline('Foo'),
-            new Button('Ok', '#'),
-        ];
-        $title = 'Composed Element';
-        $params = [
-            'class' => 'special',
-        ];
-        $panel = new Panel($elements, $title, $params);
-
         $this->expectException(\Exception::class);
-        $panel->get('nonexistent');
+
+        $this->panel->get('nonexistent');
     }
 
     public function testPanelReturnsNullOnAccessOfNonexistentParameter()
     {
-        $elements = [
-            new Headline('Foo'),
-            new Button('Ok', '#'),
-        ];
-        $title = 'Composed Element';
-        $params = [
-            'class' => 'special',
-        ];
-        $panel = new Panel($elements, $title, $params);
-
-        $this->assertEquals(null, $panel->getParameter('unknown'), 'Unknown parameter does not return null');
+        $this->assertEquals(null, $this->panel->getParameter('unknown'), 'Unknown parameter does not return null');
     }
 
     public function testPanelReturnsDefaultOnAccessOfNonexistentParameterIfProvided()
     {
-        $elements = [
-            new Headline('Foo'),
-            new Button('Ok', '#'),
-        ];
-        $title = 'Composed Element';
-        $params = [
-            'class' => 'special',
-        ];
-        $panel = new Panel($elements, $title, $params);
-
-        $this->assertEquals('default', $panel->getParameter('unknown', 'default'),
+        $this->assertEquals('default', $this->panel->getParameter('unknown', 'default'),
             'Unknown parameter with default does not return default');
     }
 
     public function testPanelCallsVisitorWithPanel()
     {
-        $elements = [
-            new Headline('Foo'),
-            new Button('Ok', '#'),
-        ];
-        $title = 'Composed Element';
-        $params = [
-            'class' => 'special',
-        ];
-        $panel = new Panel($elements, $title, $params);
         $visitor = new Visitor();
-        $panel->accept($visitor);
+        $this->panel->accept($visitor);
 
         $calls = $visitor->calls['visit'];
         $this->assertEquals(1, count($calls));
@@ -143,7 +126,7 @@ class PanelTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(
             [
                 'Panel',
-                $panel
+                $this->panel
             ],
             $call
         );

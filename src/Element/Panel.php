@@ -27,7 +27,7 @@ class Panel extends AbstractCompositeElement
      * @param string $title The title
      * @param array $params The presentation parameters
      */
-    public function __construct($elements, $title, $params = [])
+    public function __construct($elements = [], $title, $params = [])
     {
         $this->title = $title;
 
