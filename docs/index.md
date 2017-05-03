@@ -13,3 +13,4 @@
 
 - [Accordion](Accordion.md)
 - [Tabs](Tabs.md)
+- [Slider](Slider.md)
