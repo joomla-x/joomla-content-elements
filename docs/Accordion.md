@@ -36,7 +36,7 @@ $accordion = new Accordion( [ Panel[] $elements [, array $params ] ] );
 or
 
 ```php
-$accordion = Accordion::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
+$accordion = Accordion::from( Panel $data [, array $mapping [, array $params ] ] );
 ```
 
 

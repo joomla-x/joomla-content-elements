@@ -20,7 +20,7 @@ $tabs = new Tabs( [ Panel[] $elements [, array $params ] ] );
 or
 
 ```php
-$tabs = Tabs::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
+$tabs = Tabs::from( Panel $data [, array $mapping [, array $params ] ] );
 ```
 
 

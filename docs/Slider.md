@@ -22,7 +22,7 @@ $slider = new Slider( [ Panel[] $elements [, array $params ] ] );
 or
 
 ```php
-$slider = Slider::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
+$slider = Slider::from( Panel $data [, array $mapping [, array $params ] ] );
 ```
 
 

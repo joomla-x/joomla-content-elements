@@ -2,8 +2,6 @@
 
 namespace Joomla\Content\Element;
 
-use Joomla\Content\ContentElementInterface;
-
 /**
  * Class Tabs
  *
@@ -35,7 +33,7 @@ class Tabs extends AbstractCompositeElement
     /**
      * Create an element.
      *
-     * @param ContentElementInterface $data The element to be wrapped
+     * @param Panel $data The element to be wrapped
      * @param array $mapping The property mapping
      * @param array $params The presentation parameters
      *
