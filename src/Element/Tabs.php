@@ -20,6 +20,20 @@ namespace Joomla\Content\Element;
 class Tabs extends AbstractCompositeElement
 {
     /**
+     * The child elements
+     *
+     * @var Panel[]
+     */
+    protected $elements;
+
+    /**
+     * The expected class of child elements
+     *
+     * @var string
+     */
+    protected $elementType = Panel::class;
+
+    /**
      * Tabs constructor.
      *
      * @param Panel[] $elements The panels of the tabs
@@ -41,8 +55,6 @@ class Tabs extends AbstractCompositeElement
      */
     public static function from($data, $mapping = [], $params = [])
     {
-        self::checkType($data, Panel::class);
-
         return new static([$data], $params);
     }
 }

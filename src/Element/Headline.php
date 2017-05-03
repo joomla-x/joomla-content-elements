@@ -44,7 +44,7 @@ class Headline extends AbstractElement
     public function __construct($text, $level = 1, $params = [])
     {
         $this->text = $text;
-        $this->level = (int) $level;
+        $this->level = (int)$level;
 
         $this->setParameters($params);
     }

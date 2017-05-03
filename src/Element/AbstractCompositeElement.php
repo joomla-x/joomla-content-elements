@@ -14,28 +14,40 @@ abstract class AbstractCompositeElement extends AbstractElement implements Compo
      */
     protected $elements;
 
+    /**
+     * The expected class of child elements
+     *
+     * @var string
+     */
+    protected $elementType = ContentElementInterface::class;
 
     /**
-     * @param ContentElementInterface[] $elements
-     * @param array                     $params
+     * Find the value for a property.
+     *
+     * @param string $key
+     * @param ContentElementInterface $element
+     * @param array $mapping
+     * @param array $params
+     *
+     * @return mixed
      */
-    protected function init($elements, $params)
+    protected static function findValueFor($key, $element, $mapping, $params)
     {
-        foreach ($elements as $element) {
-            $this->addElement($element);
+        $key = array_key_exists($key, $mapping) ? $mapping[$key] : $key;
+
+        if (array_key_exists($key, $params)) {
+            return $params[$key];
         }
 
-        $this->setParameters($params);
-    }
+        if ($element instanceof ContentElementInterface) {
+            try {
+                return $element->getParameter($key, $element->get($key));
+            } catch (\Throwable $e) {
+                // Do nothing
+            }
+        }
 
-    /**
-     * Add a content element as a child.
-     *
-     * @param ContentElementInterface $element The content element
-     */
-    public function addElement(ContentElementInterface $element)
-    {
-        $this->elements[] = $element;
+        throw new \RuntimeException("No '$key' property or parameter found.");
     }
 
     /**
@@ -67,38 +79,38 @@ abstract class AbstractCompositeElement extends AbstractElement implements Compo
     }
 
     /**
-     * Find the value for a property.
-     *
-     * @param string                  $key
-     * @param ContentElementInterface $element
-     * @param array                   $mapping
-     * @param array                   $params
-     *
-     * @return mixed
+     * @param ContentElementInterface[] $elements
+     * @param array $params
      */
-    protected static function findValueFor($key, $element, $mapping, $params)
+    protected function init($elements, $params)
     {
-        try {
-            $value = $element->get(array_key_exists($key, $mapping) ? $mapping[$key] : $key);
-        } catch (\Exception $e) {
-            $value = array_key_exists($key, $params) ? $params[$key] : $element->getParameter($key);
+        foreach ($elements as $element) {
+            $this->addElement($element);
         }
 
-        if (empty($value)) {
-            throw new \RuntimeException("No '$key' property or parameter found.");
-        }
+        $this->setParameters($params);
+    }
 
-        return $value;
+    /**
+     * Add a content element as a child.
+     *
+     * @param ContentElementInterface $element The content element
+     */
+    public function addElement(ContentElementInterface $element)
+    {
+        $this->checkType($element);
+
+        $this->elements[] = $element;
     }
 
     /**
      * @param mixed $data
      */
-    protected static function checkType($data, $expected = ContentElementInterface::class)
+    protected function checkType($data)
     {
-        if (!$data instanceof $expected) {
+        if (!$data instanceof $this->elementType) {
             $actual = is_object($data) ? get_class($data) : gettype($data);
-            throw new \RuntimeException("Can only child elements of type $expected, $actual given.");
+            throw new \RuntimeException("Can only use child elements of type {$this->elementType}, $actual given.");
         }
     }
 }

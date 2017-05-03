@@ -50,8 +50,6 @@ class Panel extends AbstractCompositeElement
      */
     public static function from($data, $mapping = [], $params = [])
     {
-        self::checkType($data);
-
         $title = self::findValueFor('title', $data, $mapping, $params);
 
         return new static([$data], $title, $params);
