@@ -1,5 +1,5 @@
 [◄ Back to index](index.md)
-# ![Slider icon](docs/assets/slider.svg) Joomla\Content\Element\Slider
+# ![Slider icon](assets/slider.svg) Joomla\Content\Element\Slider
 
 In web design terminology, the term Slider is used for a slide show added into a web page.
 Sliders can be used on all kind of websites however they’re most commonly used on business websites or professional

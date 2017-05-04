@@ -1,5 +1,5 @@
 [◄ Back to index](index.md)
-# ![Columns icon](docs/assets/undefined.svg) Joomla\Content\Element\Columns
+# ![Columns icon](assets/undefined.svg) Joomla\Content\Element\Columns
 
 This element is a container for columns, i.e., (block) elements arranged horizontally.
 

@@ -344,7 +344,7 @@ MD;
             $iconName = 'undefined';
         }
 
-        $icon = "![{$elementName} icon](docs/assets/{$iconName}.svg)";
+        $icon = "![{$elementName} icon](assets/{$iconName}.svg)";
 
         return $icon;
     }
