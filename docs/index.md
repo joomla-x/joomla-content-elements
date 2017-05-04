@@ -3,6 +3,7 @@
 ## Basic Content Elements
 
 - [Button](Button.md)
+- [Byline](Byline.md)
 - [Headline](Headline.md)
 
 ## Structural Content Elements
