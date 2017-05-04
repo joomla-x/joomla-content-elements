@@ -13,7 +13,7 @@
    version="1.1"
    id="svg2"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="button.svg">
+   sodipodi:docname="undefined.svg">
   <metadata
      id="metadata12">
     <rdf:RDF>
@@ -39,7 +39,7 @@
      id="namedview10"
      showgrid="false"
      inkscape:zoom="10.4375"
-     inkscape:cx="16.431138"
+     inkscape:cx="1.3413176"
      inkscape:cy="8"
      inkscape:window-x="75"
      inkscape:window-y="34"
@@ -47,27 +47,4 @@
      inkscape:current-layer="svg2" />
   <defs
      id="defs4" />
-  <g
-     id="Page-1"
-     stroke="none"
-     stroke-width="1"
-     fill="none"
-     fill-rule="evenodd"
-     style="fill:#000000">
-    <g
-       id="Group"
-       transform="translate(-1.000000, -9.000000)"
-       fill="#4FF3AD"
-       style="fill:#000000">
-      <g
-         id="button_module"
-         transform="translate(1.000000, 9.000000)"
-         style="fill:#000000">
-        <path
-           d="M30,2 L30,2 L30,14 L2,14 L2,2 L30,2 L30,2 Z M30,0 L2,0 C1,0 0,1 0,2 L0,14 C0,15.2 1,16 2,16 L30,16 C31.2,16 32,15 32,14 L32,2 C32,1 31,0 30,0 L30,0 L30,0 Z"
-           id="Shape"
-           style="fill:#000000" />
-      </g>
-    </g>
-  </g>
 </svg>
