@@ -339,12 +339,12 @@ MD;
     {
         $assetDirectory = 'docs/assets/';
         $iconName = lcfirst($elementName);
-        if (!file_exists($assetDirectory . $iconName . '.svg'))
+        if (!file_exists($assetDirectory . $iconName . '-32x32.png'))
         {
             $iconName = 'undefined';
         }
 
-        $icon = "![{$elementName} icon](assets/{$iconName}.svg)";
+        $icon = "![{$elementName} icon](assets/{$iconName}-32x32.png)";
 
         return $icon;
     }

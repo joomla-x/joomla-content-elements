@@ -1,5 +1,5 @@
 [◄ Back to index](index.md)
-# ![Accordion icon](assets/accordion.svg) Joomla\Content\Element\Accordion
+# ![Accordion icon](assets/accordion-32x32.png) Joomla\Content\Element\Accordion
 
 An accordion is a graphical control element comprising a vertically stacked list of items, such as labels or
 thumbnails. Each item can be "expanded" or "stretched" to reveal the content associated with that item. There can

@@ -1,5 +1,5 @@
 [◄ Back to index](index.md)
-# ![Panel icon](assets/panel.svg) Joomla\Content\Element\Panel
+# ![Panel icon](assets/panel-32x32.png) Joomla\Content\Element\Panel
 
 A panel is a particular arrangement of information grouped together for presentation to users in a window or pop-up.
 

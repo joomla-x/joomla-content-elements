@@ -1,5 +1,5 @@
 [◄ Back to index](index.md)
-# ![Button icon](assets/button.svg) Joomla\Content\Element\Button
+# ![Button icon](assets/button-32x32.png) Joomla\Content\Element\Button
 
 A typical button is a rectangle or rounded rectangle, wider than it is tall, with a descriptive caption in its center.
 The most common method of pressing a button is clicking it with a pointer controlled by a mouse, but other input such

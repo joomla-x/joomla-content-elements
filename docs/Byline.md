@@ -1,5 +1,5 @@
 [◄ Back to index](index.md)
-# ![Byline icon](assets/undefined.svg) Joomla\Content\Element\Byline
+# ![Byline icon](assets/undefined-32x32.png) Joomla\Content\Element\Byline
 
 The byline on a newspaper or magazine article gives the date, as well as the name of the writer of the article.
 Bylines are commonly placed between the headline and the text of the article, although some magazines (notably
