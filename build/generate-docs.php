@@ -253,6 +253,7 @@ class DocGenerator
             }
 
             $replace = [
+                '%ICON%' => $this->getIcon($elementName),
                 '%NAMESPACE%' => $namespace,
                 '%CLASS%' => $elementName,
                 '%VARNAME%' => $var,
@@ -266,7 +267,7 @@ class DocGenerator
 
             $template = <<<MD
 [◄ Back to index](index.md)
-# %NAMESPACE%\%CLASS%
+# %ICON% %NAMESPACE%\%CLASS%
 
 %SUMMARY%
 
@@ -327,6 +328,25 @@ MD;
 
             file_put_contents($docsDirectory . $elementName . '.md', $template);
         }
+    }
+
+    /**
+     * @param string $elementName The name of the element
+     *
+     * @return string
+     */
+    private function getIcon($elementName)
+    {
+        $assetDirectory = 'docs/assets/';
+        $iconName = lcfirst($elementName);
+        if (!file_exists($assetDirectory . $iconName . '.svg'))
+        {
+            $iconName = 'undefined';
+        }
+
+        $icon = "![{$elementName} icon](docs/assets/{$iconName}.svg)";
+
+        return $icon;
     }
 }
 

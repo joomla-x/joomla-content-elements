@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32px"
+   height="32px"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="images.svg">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="694"
+     inkscape:window-height="480"
+     id="namedview10"
+     showgrid="false"
+     inkscape:zoom="7.375"
+     inkscape:cx="16.610169"
+     inkscape:cy="16"
+     inkscape:window-x="75"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4" />
+  <g
+     id="Page-1"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd"
+     style="fill:#000000">
+    <g
+       id="Group"
+       transform="translate(-1.000000, -1.000000)"
+       fill="#4FF3AD"
+       style="fill:#000000">
+      <g
+         id="images"
+         transform="translate(1.000000, 1.000000)"
+         style="fill:#000000">
+        <path
+           d="M30,6 L28,6 L28,2 C28,0.896 27.104,0 26,0 L2,0 C0.896,0 0,0.896 0,2 L0,24 C0,25.104 0.896,26 2,26 L4,26 L4,30 C4,31.104 4.896,32 6,32 L30,32 C31.104,32 32,31.104 32,30 L32,8 C32,6.896 31.104,6 30,6 L30,6 Z M2,24 L2,2 L26,2 L26,24 L2,24 L2,24 Z M30,30 L6,30 L6,26 L8,26 L8,28 L28,28 L28,8 L30,8 L30,30 L30,30 Z M14.79,8.188 C14.79,9.724 16.036,10.97 17.572,10.97 C19.108,10.97 20.354,9.724 20.354,8.188 C20.354,6.652 19.108,5.406 17.572,5.406 C16.036,5.406 14.79,6.652 14.79,8.188 L14.79,8.188 Z M10,10 L4,14 L4,22 L24,22 L24,12 L16,16 L10,10 Z"
+           id="Shape"
+           style="fill:#000000" />
+      </g>
+    </g>
+  </g>
+</svg>
