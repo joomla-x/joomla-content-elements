@@ -1,5 +1,5 @@
 [◄ Back to index](index.md)
-# Joomla\Content\Element\Tabs
+# ![Tabs icon](assets/tabs-32x32.png) Joomla\Content\Element\Tabs
 
 A tabbed document interface (TDI) or Tab is a graphical control element that allows multiple documents or panels to
 be contained within a single window, using tabs as a navigational widget for switching between sets of documents.

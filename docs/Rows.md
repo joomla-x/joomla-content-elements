@@ -1,5 +1,5 @@
 [◄ Back to index](index.md)
-# Joomla\Content\Element\Rows
+# ![Rows icon](assets/undefined-32x32.png) Joomla\Content\Element\Rows
 
 This element is a container for rows, i.e., (block) elements arranged vertically.
 

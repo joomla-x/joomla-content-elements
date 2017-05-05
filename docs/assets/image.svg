@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32px"
+   height="28px"
+   viewBox="0 0 32 28"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="image.svg">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="694"
+     inkscape:window-height="480"
+     id="namedview10"
+     showgrid="false"
+     inkscape:zoom="8.4285714"
+     inkscape:cx="16.533898"
+     inkscape:cy="14"
+     inkscape:window-x="75"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4" />
+  <g
+     id="Page-1"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd"
+     style="fill:#000000">
+    <g
+       id="Group"
+       transform="translate(-1.000000, -5.000000)"
+       fill="#4FF3AD"
+       style="fill:#000000">
+      <g
+         id="image"
+         transform="translate(1.000000, 5.000000)"
+         style="fill:#000000">
+        <path
+           d="M17.228,7.688 C17.228,9.224 18.474,10.47 20.01,10.47 C21.546,10.47 22.792,9.224 22.792,7.688 C22.792,6.152 21.546,4.906 20.01,4.906 C18.474,4.906 17.228,6.152 17.228,7.688 L17.228,7.688 Z M26,24 L28,24 L28,12 L20,18 L10,10 L4,16 L4,24 L6,24 L26,24 Z M30,0 L2,0 C0.896,0 0,0.896 0,2 L0,26 C0,27.104 0.896,28 2,28 L30,28 C31.104,28 32,27.104 32,26 L32,2 C32,0.896 31.104,0 30,0 L30,0 Z M30,26 L2,26 L2,2 L30,2 L30,26 L30,26 Z"
+           id="Shape"
+           style="fill:#000000" />
+      </g>
+    </g>
+  </g>
+</svg>

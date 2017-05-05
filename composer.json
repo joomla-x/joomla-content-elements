@@ -31,6 +31,9 @@
     ],
     "pull": [
       "composer update nibra/joomla-standards-contenttypes"
+    ],
+    "icons": [
+      "build/generate-icons.sh"
     ]
   }
 }
