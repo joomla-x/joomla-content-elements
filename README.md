@@ -9,7 +9,7 @@ based on the proposed [Joomla! specification for Content Elements][content-eleme
 
 To use the Content Elements in your project, enter
 
-    $ composer require nibra/joomla-content-elements
+    $ composer require nibra/content-elements
     
 in the console.
 
