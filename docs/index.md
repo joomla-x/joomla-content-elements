@@ -16,5 +16,6 @@
 ## Behavioural Content Elements
 
 - ![Accordion icon](assets/accordion-16x16.png) [Accordion](Accordion.md)
+- ![Menu icon](assets/undefined-16x16.png) [Menu](Menu.md)
 - ![Tabs icon](assets/tabs-16x16.png) [Tabs](Tabs.md)
 - ![Slider icon](assets/slider-16x16.png) [Slider](Slider.md)

@@ -44,7 +44,7 @@ class ColumnsTest extends \PHPUnit\Framework\TestCase
             'Parameter array does not have the expected values');
     }
 
-    public function testColumnsThcolumnsExceptionOnAccessOfNonexistentProperty()
+    public function testColumnsThrowsExceptionOnAccessOfNonexistentProperty()
     {
         $this->expectException(\Exception::class);
 
