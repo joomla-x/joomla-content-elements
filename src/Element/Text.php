@@ -5,7 +5,7 @@ namespace Joomla\Content\Element;
 /**
  * Class Text
  *
- * Text (also body in journalism jargon) is a sequence of paragraphs and images.
+ * Text (also body in journalism jargon) is a sequence of subheads, paragraphs and images.
  *
  * @package Joomla\Content\Element
  */
