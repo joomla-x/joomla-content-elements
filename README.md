@@ -11,6 +11,20 @@ The documentation in the `docs` directory is generated from the sources.
 
 [Read the documentation](docs/index.md)
 
+## Build environment
+
+Some Composer scripts are provided to make life a bit easier.
+
+- `composer docs` - Generate the documentation for the Content Elements
+- `composer icons` - Generate the icons for the Content Elements from SVG files
+- `composer pull` - Pull the latest version of `joomla-standards-contenttypes`
+
+## Tests
+
+To run the tests, just enter
+
+    $ phpunit
+
 ## License
 
 [MIT License](LICENSE)
