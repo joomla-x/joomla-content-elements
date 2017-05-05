@@ -30,13 +30,13 @@ _From [Wikipedia](https://en.wikipedia.org/wiki/Accordion_(GUI))_
 ## Usage
 
 ```php
-$accordion = new Accordion( [ Panel[] $elements [, array $params ] ] );
+$accordionElement = new Accordion( [ Panel[] $elements [, array $params ] ] );
 ```
 
 or
 
 ```php
-$accordion = Accordion::from( Panel $data [, array $mapping [, array $params ] ] );
+$accordionElement = Accordion::from( Panel $data [, array $mapping [, array $params ] ] );
 ```
 
 
@@ -54,7 +54,7 @@ Get the child elements.
 
 
 ```php
-$elements = $accordion->getElements();
+$elements = $accordionElement->getElements();
 ```
 
 ## Parameters
@@ -73,7 +73,7 @@ class     | string | CSS class
 Get an associative array with all parameters.
 
 ```php
-$params = $accordion->getParameters();
+$params = $accordionElement->getParameters();
 ```
 
 #### Single Parameter
@@ -81,8 +81,8 @@ $params = $accordion->getParameters();
 Retrieve a single parameter. Default should be provided.
 
 ```php
-$id    = $accordion->getParameter( 'id' [, $default ] );
-$class = $accordion->getParameter( 'class' [, $default ] );
+$id    = $accordionElement->getParameter( 'id' [, $default ] );
+$class = $accordionElement->getParameter( 'class' [, $default ] );
 ```
 
 ## Examples

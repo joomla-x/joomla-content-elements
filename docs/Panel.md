@@ -11,13 +11,13 @@ Panels are used to add a title to a group of elements for use in collections, li
 ## Usage
 
 ```php
-$panel = new Panel( ContentElementInterface[] $elements, string $title [, array $params ] );
+$panelElement = new Panel( ContentElementInterface[] $elements, string $title [, array $params ] );
 ```
 
 or
 
 ```php
-$panel = Panel::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
+$panelElement = Panel::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
 ```
 
 `data` or `params` must contain values for the required constructor argument `title`.
@@ -36,7 +36,7 @@ Get the child elements.
 
 
 ```php
-$elements = $panel->getElements();
+$elements = $panelElement->getElements();
 ```
 
 #### Title
@@ -46,7 +46,7 @@ Get the title for the panel.
 
 
 ```php
-$title = $panel->get( 'title' );
+$title = $panelElement->get( 'title' );
 ```
 
 ## Parameters
@@ -65,7 +65,7 @@ class     | string | CSS class
 Get an associative array with all parameters.
 
 ```php
-$params = $panel->getParameters();
+$params = $panelElement->getParameters();
 ```
 
 #### Single Parameter
@@ -73,8 +73,8 @@ $params = $panel->getParameters();
 Retrieve a single parameter. Default should be provided.
 
 ```php
-$id    = $panel->getParameter( 'id' [, $default ] );
-$class = $panel->getParameter( 'class' [, $default ] );
+$id    = $panelElement->getParameter( 'id' [, $default ] );
+$class = $panelElement->getParameter( 'class' [, $default ] );
 ```
 
 ## Examples

@@ -172,7 +172,7 @@ class DocGenerator
 
             $classDescription = $classDocBlock->getDescription();
 
-            $var = lcfirst($elementName);
+            $var = lcfirst($elementName) . 'Element';
 
             $args = '';
             $last = '';

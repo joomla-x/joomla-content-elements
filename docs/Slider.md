@@ -16,13 +16,13 @@ _From [wpbeginner.com](http://www.wpbeginner.com/glossary/slider/)_
 ## Usage
 
 ```php
-$slider = new Slider( [ Panel[] $elements [, array $params ] ] );
+$sliderElement = new Slider( [ Panel[] $elements [, array $params ] ] );
 ```
 
 or
 
 ```php
-$slider = Slider::from( Panel $data [, array $mapping [, array $params ] ] );
+$sliderElement = Slider::from( Panel $data [, array $mapping [, array $params ] ] );
 ```
 
 
@@ -40,7 +40,7 @@ Get the child elements.
 
 
 ```php
-$elements = $slider->getElements();
+$elements = $sliderElement->getElements();
 ```
 
 ## Parameters
@@ -59,7 +59,7 @@ class     | string | CSS class
 Get an associative array with all parameters.
 
 ```php
-$params = $slider->getParameters();
+$params = $sliderElement->getParameters();
 ```
 
 #### Single Parameter
@@ -67,8 +67,8 @@ $params = $slider->getParameters();
 Retrieve a single parameter. Default should be provided.
 
 ```php
-$id    = $slider->getParameter( 'id' [, $default ] );
-$class = $slider->getParameter( 'class' [, $default ] );
+$id    = $sliderElement->getParameter( 'id' [, $default ] );
+$class = $sliderElement->getParameter( 'class' [, $default ] );
 ```
 
 ## Examples

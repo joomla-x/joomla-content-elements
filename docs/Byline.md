@@ -14,13 +14,13 @@ _From [Wikipedia](https://en.wikipedia.org/wiki/Byline)_
 ## Usage
 
 ```php
-$byline = new Byline( [ DateTime $date [, string $author [, string $position [, array $params ] ] ] ] );
+$bylineElement = new Byline( [ DateTime $date [, string $author [, string $position [, array $params ] ] ] ] );
 ```
 
 or
 
 ```php
-$byline = Byline::from( array|object $data [, array $mapping [, array $params ] ] );
+$bylineElement = Byline::from( array|object $data [, array $mapping [, array $params ] ] );
 ```
 
 
@@ -40,7 +40,7 @@ Get the date of writing.
 
 
 ```php
-$date = $byline->get( 'date' [, $default ] );
+$date = $bylineElement->get( 'date' [, $default ] );
 ```
 
 #### Author
@@ -50,7 +50,7 @@ Get the name of the author.
 
 
 ```php
-$author = $byline->get( 'author' [, $default ] );
+$author = $bylineElement->get( 'author' [, $default ] );
 ```
 
 #### Position
@@ -60,7 +60,7 @@ Get the position of the author.
 
 
 ```php
-$position = $byline->get( 'position' [, $default ] );
+$position = $bylineElement->get( 'position' [, $default ] );
 ```
 
 ## Parameters
@@ -79,7 +79,7 @@ class     | string | CSS class
 Get an associative array with all parameters.
 
 ```php
-$params = $byline->getParameters();
+$params = $bylineElement->getParameters();
 ```
 
 #### Single Parameter
@@ -87,8 +87,8 @@ $params = $byline->getParameters();
 Retrieve a single parameter. Default should be provided.
 
 ```php
-$id    = $byline->getParameter( 'id' [, $default ] );
-$class = $byline->getParameter( 'class' [, $default ] );
+$id    = $bylineElement->getParameter( 'id' [, $default ] );
+$class = $bylineElement->getParameter( 'class' [, $default ] );
 ```
 
 ## Examples

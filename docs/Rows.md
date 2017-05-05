@@ -6,13 +6,13 @@ This element is a container for rows, i.e., (block) elements arranged vertically
 ## Usage
 
 ```php
-$rows = new Rows( [ ContentElementInterface[] $elements [, array $params ] ] );
+$rowsElement = new Rows( [ ContentElementInterface[] $elements [, array $params ] ] );
 ```
 
 or
 
 ```php
-$rows = Rows::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
+$rowsElement = Rows::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
 ```
 
 
@@ -30,7 +30,7 @@ Get the child elements.
 
 
 ```php
-$elements = $rows->getElements();
+$elements = $rowsElement->getElements();
 ```
 
 ## Parameters
@@ -49,7 +49,7 @@ class     | string | CSS class
 Get an associative array with all parameters.
 
 ```php
-$params = $rows->getParameters();
+$params = $rowsElement->getParameters();
 ```
 
 #### Single Parameter
@@ -57,8 +57,8 @@ $params = $rows->getParameters();
 Retrieve a single parameter. Default should be provided.
 
 ```php
-$id    = $rows->getParameter( 'id' [, $default ] );
-$class = $rows->getParameter( 'class' [, $default ] );
+$id    = $rowsElement->getParameter( 'id' [, $default ] );
+$class = $rowsElement->getParameter( 'class' [, $default ] );
 ```
 
 ## Examples

@@ -14,13 +14,13 @@ _From [Wikipedia](https://en.wikipedia.org/wiki/Tab_(GUI))_
 ## Usage
 
 ```php
-$tabs = new Tabs( [ Panel[] $elements [, array $params ] ] );
+$tabsElement = new Tabs( [ Panel[] $elements [, array $params ] ] );
 ```
 
 or
 
 ```php
-$tabs = Tabs::from( Panel $data [, array $mapping [, array $params ] ] );
+$tabsElement = Tabs::from( Panel $data [, array $mapping [, array $params ] ] );
 ```
 
 
@@ -38,7 +38,7 @@ Get the child elements.
 
 
 ```php
-$elements = $tabs->getElements();
+$elements = $tabsElement->getElements();
 ```
 
 ## Parameters
@@ -57,7 +57,7 @@ class     | string | CSS class
 Get an associative array with all parameters.
 
 ```php
-$params = $tabs->getParameters();
+$params = $tabsElement->getParameters();
 ```
 
 #### Single Parameter
@@ -65,8 +65,8 @@ $params = $tabs->getParameters();
 Retrieve a single parameter. Default should be provided.
 
 ```php
-$id    = $tabs->getParameter( 'id' [, $default ] );
-$class = $tabs->getParameter( 'class' [, $default ] );
+$id    = $tabsElement->getParameter( 'id' [, $default ] );
+$class = $tabsElement->getParameter( 'class' [, $default ] );
 ```
 
 ## Examples

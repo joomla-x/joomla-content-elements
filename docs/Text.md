@@ -6,13 +6,13 @@ Text (also body in journalism jargon) is a sequence of subheads, paragraphs and 
 ## Usage
 
 ```php
-$text = new Text( string $text [, array $params ] );
+$textElement = new Text( string $text [, array $params ] );
 ```
 
 or
 
 ```php
-$text = Text::from( array|object $data [, array $mapping [, array $params ] ] );
+$textElement = Text::from( array|object $data [, array $mapping [, array $params ] ] );
 ```
 
 `data` must contain values for the required constructor argument `text`.
@@ -30,7 +30,7 @@ Get the text.
 
 
 ```php
-$text = $text->get( 'text' );
+$text = $textElement->get( 'text' );
 ```
 
 ## Parameters
@@ -49,7 +49,7 @@ class     | string | CSS class
 Get an associative array with all parameters.
 
 ```php
-$params = $text->getParameters();
+$params = $textElement->getParameters();
 ```
 
 #### Single Parameter
@@ -57,8 +57,8 @@ $params = $text->getParameters();
 Retrieve a single parameter. Default should be provided.
 
 ```php
-$id    = $text->getParameter( 'id' [, $default ] );
-$class = $text->getParameter( 'class' [, $default ] );
+$id    = $textElement->getParameter( 'id' [, $default ] );
+$class = $textElement->getParameter( 'class' [, $default ] );
 ```
 
 ## Examples

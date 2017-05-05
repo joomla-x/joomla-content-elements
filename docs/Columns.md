@@ -6,13 +6,13 @@ This element is a container for columns, i.e., (block) elements arranged horizon
 ## Usage
 
 ```php
-$columns = new Columns( [ ContentElementInterface[] $elements [, array $params ] ] );
+$columnsElement = new Columns( [ ContentElementInterface[] $elements [, array $params ] ] );
 ```
 
 or
 
 ```php
-$columns = Columns::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
+$columnsElement = Columns::from( ContentElementInterface $data [, array $mapping [, array $params ] ] );
 ```
 
 
@@ -30,7 +30,7 @@ Get the child elements.
 
 
 ```php
-$elements = $columns->getElements();
+$elements = $columnsElement->getElements();
 ```
 
 ## Parameters
@@ -49,7 +49,7 @@ class     | string | CSS class
 Get an associative array with all parameters.
 
 ```php
-$params = $columns->getParameters();
+$params = $columnsElement->getParameters();
 ```
 
 #### Single Parameter
@@ -57,8 +57,8 @@ $params = $columns->getParameters();
 Retrieve a single parameter. Default should be provided.
 
 ```php
-$id    = $columns->getParameter( 'id' [, $default ] );
-$class = $columns->getParameter( 'class' [, $default ] );
+$id    = $columnsElement->getParameter( 'id' [, $default ] );
+$class = $columnsElement->getParameter( 'class' [, $default ] );
 ```
 
 ## Examples

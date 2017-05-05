@@ -23,13 +23,13 @@ _From [Wikipedia](https://en.wikipedia.org/wiki/Button_(computing))_
 ## Usage
 
 ```php
-$button = new Button( string $label, string $url [, string $hint [, string $icon [, array $params ] ] ] );
+$buttonElement = new Button( string $label, string $url [, string $hint [, string $icon [, array $params ] ] ] );
 ```
 
 or
 
 ```php
-$button = Button::from( array|object $data [, array $mapping [, array $params ] ] );
+$buttonElement = Button::from( array|object $data [, array $mapping [, array $params ] ] );
 ```
 
 `data` must contain values for the required constructor arguments `label` and `url`.
@@ -50,7 +50,7 @@ Get the text on the button.
 
 
 ```php
-$label = $button->get( 'label' );
+$label = $buttonElement->get( 'label' );
 ```
 
 #### Url
@@ -60,7 +60,7 @@ Get the link to the action.
 
 
 ```php
-$url = $button->get( 'url' );
+$url = $buttonElement->get( 'url' );
 ```
 
 #### Hint
@@ -70,7 +70,7 @@ Get a hint about the action.
 
 
 ```php
-$hint = $button->get( 'hint' [, $default ] );
+$hint = $buttonElement->get( 'hint' [, $default ] );
 ```
 
 #### Icon
@@ -80,7 +80,7 @@ Get an optional icon name to represent the action.
 
 
 ```php
-$icon = $button->get( 'icon' [, $default ] );
+$icon = $buttonElement->get( 'icon' [, $default ] );
 ```
 
 ## Parameters
@@ -99,7 +99,7 @@ class     | string | CSS class
 Get an associative array with all parameters.
 
 ```php
-$params = $button->getParameters();
+$params = $buttonElement->getParameters();
 ```
 
 #### Single Parameter
@@ -107,8 +107,8 @@ $params = $button->getParameters();
 Retrieve a single parameter. Default should be provided.
 
 ```php
-$id    = $button->getParameter( 'id' [, $default ] );
-$class = $button->getParameter( 'class' [, $default ] );
+$id    = $buttonElement->getParameter( 'id' [, $default ] );
+$class = $buttonElement->getParameter( 'class' [, $default ] );
 ```
 
 ## Examples
