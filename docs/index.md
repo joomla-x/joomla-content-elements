@@ -5,6 +5,7 @@
 - ![Button icon](assets/button-16x16.png) [Button](Button.md)
 - ![Byline icon](assets/undefined-16x16.png) [Byline](Byline.md)
 - ![Headline icon](assets/undefined-16x16.png) [Headline](Headline.md)
+- ![Text icon](assets/text-16x16.png) [Text](Text.md)
 
 ## Structural Content Elements
 
