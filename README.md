@@ -5,6 +5,14 @@ based on the proposed [Joomla! specification for Content Elements][content-eleme
 
 [content-elements]: https://github.com/nibra/joomla-standards/blob/master/proposed/content-elements.md
 
+## Usage
+
+To use the Content Elements in your project, enter
+
+    $ composer require nibra/joomla-content-elements
+    
+in the console.
+
 ## Documentation
 
 The documentation in the `docs` directory is generated from the sources.
